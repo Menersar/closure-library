@@ -86,7 +86,7 @@ def Transform(lines):
 
   # Backwards-sort the requires, so that when one is a substring of another,
   # we match the longer one first.
-  for val in DEFAULT_ALIASES.values():
+  for val in list(DEFAULT_ALIASES.values()):
     if requires.count(val) == 0:
       requires.append(val)
 
@@ -109,7 +109,7 @@ def Transform(lines):
 
   aliases_to_matchers = {}
   globals_to_aliases = {}
-  for alias, symbol in aliases_to_globals.items():
+  for alias, symbol in list(aliases_to_globals.items()):
     globals_to_aliases[symbol] = alias
     aliases_to_matchers[alias] = re.compile('\\b%s\\b' % symbol)
 

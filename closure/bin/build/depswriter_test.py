@@ -51,7 +51,7 @@ class DepsWriterTestCase(unittest.TestCase):
 
   def testMakeDepsFileUnicode(self):
     sources = {}
-    sources['test.js'] = MockSource([u'A'], [u'B', u'C'])
+    sources['test.js'] = MockSource(['A'], ['B', 'C'])
     deps = depswriter.MakeDepsFile(sources)
 
     self.assertEqual(
@@ -70,3 +70,4 @@ class DepsWriterTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
   unittest.main()
+

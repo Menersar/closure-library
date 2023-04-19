@@ -76,3 +76,4 @@ def ScanTree(root, path_filter=None, ignore_hidden=True):
         continue
 
       yield os.path.normpath(fullpath)
+

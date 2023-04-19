@@ -159,3 +159,4 @@ def Compile(compiler_jar_path,
     raise JsCompilerError('JavaScript compilation failed.')
   finally:
     os.remove(flags_file.name)
+

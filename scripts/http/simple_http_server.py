@@ -16,29 +16,30 @@
 """Simple HTTP server.
 """
 
-import SimpleHTTPServer
-import SocketServer
+import http.server
+import socketserver
 
 PORT = 8080
 
 
 # Simple server to respond to both POST and GET requests. POST requests will
 # just respond as normal GETs.
-class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+class ServerHandler(http.server.SimpleHTTPRequestHandler):
 
   def do_GET(self):
-    SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+    http.server.SimpleHTTPRequestHandler.do_GET(self)
 
   def do_POST(self):
-    SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+    http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 
 Handler = ServerHandler
 
 # Allows use to restart server immediately after restarting it.
-SocketServer.ThreadingTCPServer.allow_reuse_address = True
+socketserver.ThreadingTCPServer.allow_reuse_address = True
 
-httpd = SocketServer.TCPServer(("", PORT), Handler)
+httpd = socketserver.TCPServer(("", PORT), Handler)
 
-print "Serving at: http://%s:%s" % ("localhost", PORT)
+print("Serving at: http://%s:%s" % ("localhost", PORT))
 httpd.serve_forever()
+

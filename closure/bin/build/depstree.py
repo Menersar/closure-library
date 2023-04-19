@@ -168,7 +168,7 @@ class MultipleProvideError(BaseDepsTreeError):
     self._sources = sources
 
   def __str__(self):
-    source_strs = map(str, self._sources)
+    source_strs = list(map(str, self._sources))
 
     return ('Namespace "%s" provided more than once in sources:\n%s\n' %
             (self._namespace, '\n'.join(source_strs)))
@@ -187,3 +187,4 @@ class NamespaceNotFoundError(BaseDepsTreeError):
     if self._source:
       msg += ' Required in %s' % self._source
     return msg
+

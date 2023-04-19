@@ -130,3 +130,4 @@ def GetFileContents(path):
   finally:
     if fileobj is not None:
       fileobj.close()
+

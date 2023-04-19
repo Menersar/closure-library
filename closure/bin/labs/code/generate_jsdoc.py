@@ -169,3 +169,4 @@ if __name__ == '__main__':
     sys.stdout.write(result)
   else:
     sys.stdout.write(stdin_script)
+

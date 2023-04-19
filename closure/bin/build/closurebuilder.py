@@ -186,7 +186,7 @@ class _PathSource(source.Source):
 
 
 def _WrapGoogModuleSource(src):
-  return (u'goog.loadModule(function(exports) {{'
+  return ('goog.loadModule(function(exports) {{'
           '"use strict";'
           '{0}'
           '\n'  # terminate any trailing single line comment.
@@ -291,3 +291,4 @@ https://github.com/google/closure-compiler/wiki/Managing-Dependencies
 
 if __name__ == '__main__':
   main()
+
